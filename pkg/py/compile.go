@@ -7,17 +7,17 @@ import (
 type (
 	Opcode struct {
 		Code string
-		Arg  interface{}
+		Arg  any
 	}
 
 	SSA struct {
 		Action     string
-		Arg1, Arg2 interface{}
+		Arg1, Arg2 any
 	}
 
 	Compiler struct {
 		Opcodes   []*Opcode
-		Constants []interface{}
+		Constants []any
 		index     int
 	}
 )
@@ -26,7 +26,7 @@ func (s *SSA) String() string {
 	return fmt.Sprintf("%s-%v-%v", s.Action, s.Arg1, s.Arg2)
 }
 
-func NewCompiler(opcodes []*Opcode, constants []interface{}) *Compiler {
+func NewCompiler(opcodes []*Opcode, constants []any) *Compiler {
 	return &Compiler{
 		Opcodes:   opcodes,
 		Constants: constants,
@@ -48,7 +48,7 @@ func (c *Compiler) variable(n int) string {
 func (c *Compiler) Compile() ([]*SSA, error) {
 	ir := make([]*SSA, 0)
 
-	pushSSA := func(a string, b, c interface{}) {
+	pushSSA := func(a string, b, c any) {
 		ssa := &SSA{
 			Action: a,
 			Arg1:   b,

@@ -95,7 +95,7 @@ func TestVM_ObjSize(t *testing.T) {
 		typ    ObjectType // 8
 		next   *Object    // 8
 		marked bool
-		inner  interface{}
+		inner  any
 	}
 
 	sz = int(unsafe.Sizeof(t3{}))
@@ -103,7 +103,7 @@ func TestVM_ObjSize(t *testing.T) {
 	assert.Equal(sz, 40)
 
 	type t4 struct {
-		inner interface{}
+		inner any
 	}
 
 	sz = int(unsafe.Sizeof(t4{}))

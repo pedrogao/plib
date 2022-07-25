@@ -19,7 +19,7 @@ func main() {
 	fmt.Println(val)
 
 	err := t.WalkPath("/root/*",
-		func(key string, value interface{}) error {
+		func(key string, value any) error {
 			fmt.Printf("key: %s, val: %s\n", key, value)
 			return nil
 		})

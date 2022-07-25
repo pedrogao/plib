@@ -42,8 +42,8 @@ type (
 	// Elem
 	Elem interface {
 		Type() ElemType
-		Val() interface{}
-		Get(path ...interface{}) Elem
+		Val() any
+		Get(path ...any) Elem
 		AsString() string
 		AsNumber() float64
 		AsBool() bool
@@ -78,7 +78,7 @@ type (
 	}
 )
 
-func NewLiteralElem(val interface{}) Elem {
+func NewLiteralElem(val any) Elem {
 	if val == nil {
 		return &NullElem{}
 	}
@@ -94,28 +94,28 @@ func NewLiteralElem(val interface{}) Elem {
 	}
 }
 
-func (e *StringElem) Get(...interface{}) Elem {
+func (e *StringElem) Get(...any) Elem {
 	return e
 }
 
-func (e *NumberElem) Get(...interface{}) Elem {
+func (e *NumberElem) Get(...any) Elem {
 	return e
 }
 
-func (e *BoolElem) Get(...interface{}) Elem {
+func (e *BoolElem) Get(...any) Elem {
 	return e
 }
 
-func (e *NullElem) Get(...interface{}) Elem {
+func (e *NullElem) Get(...any) Elem {
 	return e
 }
 
-func (e *ArrayElem) Get(path ...interface{}) Elem {
+func (e *ArrayElem) Get(path ...any) Elem {
 	i := path[0].(int)
 	return e.val[i].Get(path[1:]...)
 }
 
-func (e *ObjectElem) Get(path ...interface{}) Elem {
+func (e *ObjectElem) Get(path ...any) Elem {
 	key := path[0].(string)
 	return e.val[key].Get(path[1:]...)
 }
@@ -290,26 +290,26 @@ func (e *NullElem) Type() ElemType {
 	return NullType
 }
 
-func (e *StringElem) Val() interface{} {
+func (e *StringElem) Val() any {
 	return e.val
 }
 
-func (e *NumberElem) Val() interface{} {
+func (e *NumberElem) Val() any {
 	return e.val
 }
 
-func (e *BoolElem) Val() interface{} {
+func (e *BoolElem) Val() any {
 	return e.val
 }
 
-func (e *ArrayElem) Val() interface{} {
+func (e *ArrayElem) Val() any {
 	return e.val
 }
 
-func (e *ObjectElem) Val() interface{} {
+func (e *ObjectElem) Val() any {
 	return e.val
 }
 
-func (e *NullElem) Val() interface{} {
+func (e *NullElem) Val() any {
 	return nil
 }

@@ -23,14 +23,14 @@ type TcpSegment struct {
 	Body          []byte
 	_io           *kaitai.Stream
 	_root         *TcpSegment
-	_parent       interface{}
+	_parent       any
 }
 
 func NewTcpSegment() *TcpSegment {
 	return &TcpSegment{}
 }
 
-func (this *TcpSegment) Read(io *kaitai.Stream, parent interface{}, root *TcpSegment) (err error) {
+func (this *TcpSegment) Read(io *kaitai.Stream, parent any, root *TcpSegment) (err error) {
 	this._io = io
 	this._parent = parent
 	this._root = root

@@ -18,14 +18,14 @@ type UdpDatagram struct {
 	Body     []byte
 	_io      *kaitai.Stream
 	_root    *UdpDatagram
-	_parent  interface{}
+	_parent  any
 }
 
 func NewUdpDatagram() *UdpDatagram {
 	return &UdpDatagram{}
 }
 
-func (this *UdpDatagram) Read(io *kaitai.Stream, parent interface{}, root *UdpDatagram) (err error) {
+func (this *UdpDatagram) Read(io *kaitai.Stream, parent any, root *UdpDatagram) (err error) {
 	this._io = io
 	this._parent = parent
 	this._root = root

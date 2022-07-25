@@ -23,7 +23,7 @@ type Ipv4Packet struct {
 	Body           *ProtocolBody
 	_io            *kaitai.Stream
 	_root          *Ipv4Packet
-	_parent        interface{}
+	_parent        any
 	_raw_Options   []byte
 	_raw_Body      []byte
 	_f_version     bool
@@ -38,7 +38,7 @@ func NewIpv4Packet() *Ipv4Packet {
 	return &Ipv4Packet{}
 }
 
-func (this *Ipv4Packet) Read(io *kaitai.Stream, parent interface{}, root *Ipv4Packet) (err error) {
+func (this *Ipv4Packet) Read(io *kaitai.Stream, parent any, root *Ipv4Packet) (err error) {
 	this._io = io
 	this._parent = parent
 	this._root = root

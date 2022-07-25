@@ -170,11 +170,11 @@ const (
 )
 
 type ProtocolBody struct {
-	Body        interface{}
+	Body        any
 	ProtocolNum uint8
 	_io         *kaitai.Stream
 	_root       *ProtocolBody
-	_parent     interface{}
+	_parent     any
 	_f_protocol bool
 	protocol    ProtocolBody_ProtocolEnum
 }
@@ -185,7 +185,7 @@ func NewProtocolBody(protocolNum uint8) *ProtocolBody {
 	}
 }
 
-func (this *ProtocolBody) Read(io *kaitai.Stream, parent interface{}, root *ProtocolBody) (err error) {
+func (this *ProtocolBody) Read(io *kaitai.Stream, parent any, root *ProtocolBody) (err error) {
 	this._io = io
 	this._parent = parent
 	this._root = root

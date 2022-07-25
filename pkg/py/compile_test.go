@@ -48,7 +48,7 @@ func TestCompilerOp(t *testing.T) {
 			Arg:  nil,
 		},
 	}
-	c := NewCompiler(opcodes, []interface{}{nil})
+	c := NewCompiler(opcodes, []any{nil})
 	ir, err := c.Compile()
 	assert.Nil(err)
 	t.Logf("%v\n", ir)

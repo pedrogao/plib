@@ -40,7 +40,7 @@ const eof = ' '
 type Token struct {
 	Type  TokenType
 	Raw   string
-	Value interface{}
+	Value any
 	Line  int
 }
 
@@ -210,7 +210,7 @@ func (s *Scanner) identifier() {
 	}
 }
 
-func (s *Scanner) addToken(typ TokenType, value interface{}) {
+func (s *Scanner) addToken(typ TokenType, value any) {
 	sub := string(s.runes[s.start:s.current])
 	s.tokens = append(s.tokens, &Token{
 		Type:  typ,

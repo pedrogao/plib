@@ -66,7 +66,7 @@ func (f *BloomFilter) calculateHashCount(bitArraySize, numItems int) int {
 }
 
 func (f *BloomFilter) Pack() []byte {
-	bytes, err := jsoniter.Marshal(map[string]interface{}{
+	bytes, err := jsoniter.Marshal(map[string]any{
 		"falsePositivePob": f.falsePositivePob,
 		"bitArraySize":     f.bitArraySize,
 		"hashCount":        f.hashCount,
@@ -80,7 +80,7 @@ func (f *BloomFilter) Pack() []byte {
 }
 
 func (f *BloomFilter) UnPack(data []byte) error {
-	m := map[string]interface{}{}
+	m := map[string]any{}
 	var err error
 	err = jsoniter.Unmarshal(data, &m)
 	if err != nil {

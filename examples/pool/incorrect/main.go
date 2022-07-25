@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	pool := sync.Pool{New: func() interface{} { return new(bytes.Buffer) }}
+	pool := sync.Pool{New: func() any { return new(bytes.Buffer) }}
 
 	processRequest := func(size int) {
 		b := pool.Get().(*bytes.Buffer)    // Get 从队列里面拿，实际上是随机的

@@ -7,8 +7,7 @@ import (
 )
 
 type (
-	Queue interface {
-	}
+	Queue any
 
 	metadata struct {
 		size      int     // 未完成任务数

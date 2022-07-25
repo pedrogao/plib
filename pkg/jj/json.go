@@ -7,7 +7,7 @@ import (
 )
 
 // Unmarshal source -> struct
-func Unmarshal(source string, v interface{}) error {
+func Unmarshal(source string, v any) error {
 	rv := reflect.ValueOf(v)
 	if rv.Kind() != reflect.Pointer || rv.IsNil() {
 		return fmt.Errorf("input value invalid")
@@ -103,6 +103,6 @@ func Marshal(elem Elem, whitespace string) string {
 }
 
 // PreTouch 预热 TODO
-func PreTouch(v interface{}) error {
+func PreTouch(v any) error {
 	return nil
 }

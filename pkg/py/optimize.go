@@ -4,7 +4,7 @@ func Optimize(ir []*SSA) []*SSA {
 	ret := make([]*SSA, 0)
 
 	fetch := func(n int) (string,
-		interface{}, interface{}) {
+		any, any) {
 		if n < len(ir) {
 			return ir[n].Action,
 				ir[n].Arg1, ir[n].Arg2
@@ -12,7 +12,7 @@ func Optimize(ir []*SSA) []*SSA {
 		return "", nil, nil
 	}
 
-	pushSSA := func(a string, b, c interface{}) {
+	pushSSA := func(a string, b, c any) {
 		ssa := &SSA{
 			Action: a,
 			Arg1:   b,

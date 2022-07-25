@@ -26,14 +26,14 @@ type IcmpPacket struct {
 	Echo                   *IcmpPacket_EchoMsg
 	_io                    *kaitai.Stream
 	_root                  *IcmpPacket
-	_parent                interface{}
+	_parent                any
 }
 
 func NewIcmpPacket() *IcmpPacket {
 	return &IcmpPacket{}
 }
 
-func (this *IcmpPacket) Read(io *kaitai.Stream, parent interface{}, root *IcmpPacket) (err error) {
+func (this *IcmpPacket) Read(io *kaitai.Stream, parent any, root *IcmpPacket) (err error) {
 	this._io = io
 	this._parent = parent
 	this._root = root

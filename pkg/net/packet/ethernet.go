@@ -35,10 +35,10 @@ type EthernetFrame struct {
 	EtherType1   EthernetFrame_EtherTypeEnum
 	Tci          *EthernetFrame_TagControlInfo
 	EtherType2   EthernetFrame_EtherTypeEnum
-	Body         interface{}
+	Body         any
 	_io          *kaitai.Stream
 	_root        *EthernetFrame
-	_parent      interface{}
+	_parent      any
 	_raw_Body    []byte
 	_f_etherType bool
 	etherType    EthernetFrame_EtherTypeEnum
@@ -48,7 +48,7 @@ func NewEthernetFrame() *EthernetFrame {
 	return &EthernetFrame{}
 }
 
-func (this *EthernetFrame) Read(io *kaitai.Stream, parent interface{}, root *EthernetFrame) (err error) {
+func (this *EthernetFrame) Read(io *kaitai.Stream, parent any, root *EthernetFrame) (err error) {
 	this._io = io
 	this._parent = parent
 	this._root = root

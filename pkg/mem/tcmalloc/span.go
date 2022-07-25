@@ -96,8 +96,7 @@ func (s *span) makeObjects(objectClass int) {
 	s.state = allocatedSmall
 	size := class2Size(objectClass)
 	// +size 是为了一个 object 不越界
-	for obj := s.pageStart; obj+uintptr(size) <= s.pageStart+uintptr(s.numPages*pageSize);
-	obj = obj + uintptr(size) {
+	for obj := s.pageStart; obj+uintptr(size) <= s.pageStart+uintptr(s.numPages*pageSize); obj = obj + uintptr(size) {
 		o := (*object)(unsafe.Pointer(obj))
 		s.freeObjects.push(o)
 	}

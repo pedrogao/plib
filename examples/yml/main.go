@@ -13,7 +13,7 @@ import (
 func minify(orig []byte) ([]byte, error) {
 	var b bytes.Buffer
 	b.WriteByte('{')
-	output := make(map[string]interface{})
+	output := make(map[string]any)
 	if err := yaml.Unmarshal(orig, output); err != nil {
 		return nil, err
 	}
@@ -22,7 +22,7 @@ func minify(orig []byte) ([]byte, error) {
 	return b.Bytes(), nil
 }
 
-func transformMap(in map[string]interface{}, b *bytes.Buffer) {
+func transformMap(in map[string]any, b *bytes.Buffer) {
 	index := len(in)
 	for k, v := range in {
 		b.WriteString(k + ":")
@@ -33,11 +33,11 @@ func transformMap(in map[string]interface{}, b *bytes.Buffer) {
 			} else {
 				b.WriteString(i)
 			}
-		case map[string]interface{}:
+		case map[string]any:
 			b.WriteString("{")
 			transformMap(i, b)
 			b.WriteString("}")
-		case []interface{}:
+		case []any:
 			b.WriteRune('[')
 			transformArr(i, b)
 			b.WriteRune(']')
@@ -49,7 +49,7 @@ func transformMap(in map[string]interface{}, b *bytes.Buffer) {
 	}
 }
 
-func transformArr(arr []interface{}, b *bytes.Buffer) {
+func transformArr(arr []any, b *bytes.Buffer) {
 	index := len(arr)
 	for _, v := range arr {
 		switch i := v.(type) {
@@ -59,11 +59,11 @@ func transformArr(arr []interface{}, b *bytes.Buffer) {
 			} else {
 				b.WriteString(i)
 			}
-		case map[string]interface{}:
+		case map[string]any:
 			b.WriteString("{")
 			transformMap(i, b)
 			b.WriteString("}")
-		case []interface{}:
+		case []any:
 			b.WriteRune('[')
 			transformArr(i, b)
 			b.WriteRune(']')

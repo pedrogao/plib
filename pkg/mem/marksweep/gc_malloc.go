@@ -25,10 +25,10 @@ const (
 type (
 	// Object 对象
 	Object struct {
-		typ    ObjectType  // 8
-		next   *Object     // 8
-		marked bool        // 8
-		inner  interface{} // 16
+		typ    ObjectType // 8
+		next   *Object    // 8
+		marked bool       // 8
+		inner  any        // 16
 	}
 
 	// Pair 元组对象

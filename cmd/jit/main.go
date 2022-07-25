@@ -44,7 +44,7 @@ func main() {
 			Arg:  nil,
 		},
 	}
-	c := py.NewCompiler(opcodes, []interface{}{nil})
+	c := py.NewCompiler(opcodes, []any{nil})
 	ir, err := c.Compile()
 	if err != nil {
 		panic(err)

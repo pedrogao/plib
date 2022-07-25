@@ -29,7 +29,7 @@ type (
 		typ    ObjectType
 		next   *Object
 		marked bool // black or not
-		inner  interface{}
+		inner  any
 	}
 
 	// Pair 元组对象
