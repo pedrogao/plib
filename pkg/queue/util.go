@@ -1,6 +1,7 @@
 package queue
 
 import (
+	"fmt"
 	"os"
 )
 
@@ -14,4 +15,21 @@ func exists(path string) bool {
 		return false
 	}
 	return false
+}
+
+func isDir(path string) bool {
+	fileInfo, err := os.Stat(path)
+	if err != nil {
+		return false
+	}
+	if fileInfo.IsDir() {
+		return true
+	}
+
+	return false
+}
+
+func mkdir(path string) error {
+	err := os.MkdirAll(path, os.ModePerm)
+	return fmt.Errorf("make dir: %s err: %s", path, err)
 }

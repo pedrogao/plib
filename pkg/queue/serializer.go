@@ -13,6 +13,8 @@ type (
 		Load(path string, val any) error
 
 		Dump(path string, val any) error
+
+		DumpFile(file *os.File, val any) error
 	}
 
 	JsonSerializer struct {
@@ -30,7 +32,10 @@ func (s *JsonSerializer) Load(path string, val any) error {
 	}
 
 	err = jsoniter.Unmarshal(bytes, val)
-	return fmt.Errorf("unmarshal err: %s", err)
+	if err != nil {
+		return fmt.Errorf("unmarshal err: %s", err)
+	}
+	return nil
 }
 
 func (s *JsonSerializer) Dump(path string, val any) error {
@@ -40,5 +45,20 @@ func (s *JsonSerializer) Dump(path string, val any) error {
 	}
 
 	err = ioutil.WriteFile(path, bytes, os.ModePerm)
-	return fmt.Errorf("write %s file err: %s", path, err)
+	if err != nil {
+		return fmt.Errorf("write %s file err: %s", path, err)
+	}
+	return nil
+}
+
+func (s *JsonSerializer) DumpFile(file *os.File, val any) error {
+	bytes, err := jsoniter.Marshal(val)
+	if err != nil {
+		return fmt.Errorf("marshal err: %s", err)
+	}
+	_, err = file.Write(bytes)
+	if err != nil {
+		return fmt.Errorf("write %s file err: %s", file.Name(), err)
+	}
+	return nil
 }
