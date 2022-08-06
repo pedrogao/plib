@@ -58,3 +58,4 @@ Details see: [docs](./docs/)
 - https://colobu.com/archives/
 - https://colobu.com/2020/08/14/lock-free-queue-in-go/
 - https://en.wikipedia.org/wiki/Trie
+- https://jeiwan.net/
