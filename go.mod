@@ -5,6 +5,7 @@ go 1.18
 require (
 	github.com/bytedance/sonic v1.1.1
 	github.com/davecgh/go-spew v1.1.1
+	github.com/gammazero/deque v0.1.0
 	github.com/goccy/go-jit v0.0.0-20200514131505-ff78d45cf6af
 	github.com/json-iterator/go v1.1.12
 	github.com/kaitai-io/kaitai_struct_go_runtime v0.0.0-20220323120020-bcb4c4493cea
@@ -16,10 +17,12 @@ require (
 	github.com/songgao/water v0.0.0-20200317203138-2b4b6d7c09d8
 	github.com/stretchr/testify v1.7.1
 	github.com/struCoder/pidusage v0.2.1
+	go.uber.org/goleak v1.1.12
+	go.uber.org/zap v1.22.0
 	golang.org/x/crypto v0.0.0-20220210151621-f4118a5b28e2
 	golang.org/x/exp v0.0.0-20220722155223-a9213eeb770e
 	golang.org/x/net v0.0.0-20211112202133-69e39bad7dc2
-	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c
+	gopkg.in/yaml.v3 v3.0.1
 )
 
 require (
@@ -31,6 +34,8 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
+	go.uber.org/atomic v1.7.0 // indirect
+	go.uber.org/multierr v1.6.0 // indirect
 	golang.org/x/arch v0.0.0-20210923205945-b76863e36670 // indirect
 	golang.org/x/mod v0.6.0-dev.0.20220106191415-9b9b3d81d5e3 // indirect
 	golang.org/x/sys v0.0.0-20220325203850-36772127a21f // indirect

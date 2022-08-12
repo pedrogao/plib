@@ -2,3 +2,4 @@
 .vscode
 **__pycache__**
 pkg/queue/test
+*.log
