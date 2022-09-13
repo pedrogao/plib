@@ -48,14 +48,17 @@ Details see: [docs](./docs/)
 
 ## references
 
-- https://mp.weixin.qq.com/s/t3INtSfFSmv-nsJqLmdPew
-- https://github.com/zeromicro/go-zero
-- https://github.com/akutz/go-generics-the-hard-way
-- https://github.com/mattn/go-generics-example
-- https://github.com/zyedidia/generic
-- https://github.com/golang/go
-- https://mojotv.cn/404#Go%E8%BF%9B%E9%98%B6
-- https://colobu.com/archives/
-- https://colobu.com/2020/08/14/lock-free-queue-in-go/
-- https://en.wikipedia.org/wiki/Trie
-- https://jeiwan.net/
+- [Go 通过 Map/Filter/ForEach 等流式 API 高效处理数据](https://mp.weixin.qq.com/s/t3INtSfFSmv-nsJqLmdPew)
+- [go-zero](https://github.com/zeromicro/go-zero)
+- [go-generics-the-hard-way](https://github.com/akutz/go-generics-the-hard-way)
+- [go-generics-example](https://github.com/mattn/go-generics-example)
+- [Generic Data Structures](https://github.com/zyedidia/generic)
+- [golang](https://github.com/golang/go)
+- [Go 进阶](https://mojotv.cn/404#Go%E8%BF%9B%E9%98%B6)
+- [鸟窝](https://colobu.com/archives/)
+- [lock free queue in go](https://colobu.com/2020/08/14/lock-free-queue-in-go/)
+- [Trie](https://en.wikipedia.org/wiki/Trie)
+- [Going the distance](https://jeiwan.net/)
+- [Go 阅读清单](https://github.com/qichengzx/gopher-reading-list-zh_CN)
+- [Go 程序内存泄露问题快速定位](https://zhuanlan.zhihu.com/p/368567370)
+- [Go 101](https://go101.org/article/101.html)
