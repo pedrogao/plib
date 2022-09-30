@@ -1,4 +1,4 @@
-package skiplist
+package collection
 
 import (
 	"golang.org/x/exp/constraints"
